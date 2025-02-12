@@ -12,6 +12,8 @@ using Volo.Abp.OpenIddict.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using Appointment.Booking.IRepository;
+using Appointment.Booking.Repository;
 
 namespace Appointment.Booking.EntityFrameworkCore;
 

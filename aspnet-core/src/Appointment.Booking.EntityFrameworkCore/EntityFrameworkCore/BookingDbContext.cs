@@ -1,4 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Appointment.Booking.Appointments;
+using Appointment.Booking.Configurations;
+using Appointment.Booking.Doctors;
+using Appointment.Booking.Patients;
+using Appointment.Booking.Payments;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -53,11 +59,14 @@ public class BookingDbContext :
 
     #endregion
 
-    public BookingDbContext(DbContextOptions<BookingDbContext> options)
-        : base(options)
-    {
+    public BookingDbContext(DbContextOptions<BookingDbContext> options) : base(options) {}
 
-    }
+    public DbSet<Patient> Patients { get; set; }
+    public DbSet<Doctor> Doctors { get; set; }
+    public DbSet<AppointmentEntity> Appointments { get; set; }
+    public DbSet<AppointmentType> AppointmentTypes { get; set; }
+    public DbSet<Payment> Payments { get; set; }
+    public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -75,12 +84,13 @@ public class BookingDbContext :
         builder.ConfigureTenantManagement();
 
         /* Configure your own tables/entities inside here */
+        builder.ApplyConfiguration(new PatientConfiguration());
+        builder.ApplyConfiguration(new DoctorConfiguration());
+        builder.ApplyConfiguration(new AppointmentConfiguration());
+        builder.ApplyConfiguration(new AppointmentTypeConfiguration());
+        builder.ApplyConfiguration(new PaymentConfiguration());
+        builder.ApplyConfiguration(new DoctorAvailabilityConfiguration());
 
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(BookingConsts.DbTablePrefix + "YourEntities", BookingConsts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
+
     }
 }
