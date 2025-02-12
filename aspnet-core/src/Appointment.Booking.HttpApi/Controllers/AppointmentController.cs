@@ -21,9 +21,9 @@ public class AppointmentController : AbpControllerBase
     }
 
     [HttpGet]
-    [Route("patient/{tenantId}/{patientId}")]
-    public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(Guid tenantId, int patientId)
-    => await _appointmentService.GetAppointmentsForPatientAsync(tenantId, patientId);
+    [Route("patient/{patientId}")]
+    public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId)
+    => await _appointmentService.GetAppointmentsForPatientAsync(patientId);
     
 
     [HttpGet]
@@ -34,8 +34,8 @@ public class AppointmentController : AbpControllerBase
 
     [HttpGet]
     [Route("patient/upcoming/{tenantId}/{patientId}")]
-    public async Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync(Guid tenantId, int patientId)
-    => await _appointmentService.GetUpcomingAppointmentsForPatientAsync(tenantId, patientId);
+    public async Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync( int patientId)
+    => await _appointmentService.GetUpcomingAppointmentsForPatientAsync( patientId);
     
 
     [HttpGet]

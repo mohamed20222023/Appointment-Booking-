@@ -18,7 +18,7 @@ public class AppointmentRepository : EfCoreRepository<BookingDbContext, Appointm
     {
     }
 
-    public async Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync(Guid tenantId, int patientId)
+    public async Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync( int patientId)
     {
         var dbContext = await GetDbContextAsync();
         return dbContext.Appointments
@@ -40,7 +40,7 @@ public class AppointmentRepository : EfCoreRepository<BookingDbContext, Appointm
             .AsQueryable();
     }
 
-    public async Task<IQueryable<AppointmentEntity>> GetUpcomingAppointmentsForPatientAsync(Guid tenantId, int patientId)
+    public async Task<IQueryable<AppointmentEntity>> GetUpcomingAppointmentsForPatientAsync(int patientId)
     {
         var dbContext = await GetDbContextAsync();
         return dbContext.Appointments

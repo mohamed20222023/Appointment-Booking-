@@ -23,9 +23,9 @@ namespace Appointment.Booking.Service
             _appointmentRepository = appointmentRepository;
         }
 
-        public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(Guid tenantId, int patientId)
+        public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId)
         {
-            var queryable = await _appointmentRepository.GetAppointmentsForPatientAsync(tenantId, patientId);
+            var queryable = await _appointmentRepository.GetAppointmentsForPatientAsync( patientId);
             var appointments = await queryable.ToListAsync();
 
             if (!appointments.Any())
@@ -45,9 +45,9 @@ namespace Appointment.Booking.Service
             return ObjectMapper.Map<List<AppointmentEntity> , List <AppointmentDto>>(appointments);
         }
 
-        public async Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync(Guid tenantId, int patientId)
+        public async Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync( int patientId)
         {
-            var queryable = await _appointmentRepository.GetUpcomingAppointmentsForPatientAsync(tenantId, patientId);
+            var queryable = await _appointmentRepository.GetUpcomingAppointmentsForPatientAsync( patientId);
             var appointments = await queryable.ToListAsync();
 
             if (!appointments.Any())

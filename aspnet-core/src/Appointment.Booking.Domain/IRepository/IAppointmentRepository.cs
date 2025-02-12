@@ -10,10 +10,10 @@ namespace Appointment.Booking.IRepository;
 
 public interface IAppointmentRepository : IRepository<AppointmentEntity, int>
 {
-    Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync(Guid tenantId, int patientId);
+    Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync(int patientId);
     Task<IQueryable<AppointmentEntity>> GetAppointmentsForDoctorAsync(int doctorId);
-    Task<IQueryable<AppointmentEntity>> GetUpcomingAppointmentsForPatientAsync(Guid tenantId, int patientId);
+    Task<IQueryable<AppointmentEntity>> GetUpcomingAppointmentsForPatientAsync(int patientId);
     Task<IQueryable<AppointmentEntity>> GetAppointmentsForDoctorWithinDateRangeAsync(int doctorId, DateTime? startDate, DateTime? endDate);
-        Task<IQueryable<PopularAppointmentType>> GetPopularAppointmentTypesForDoctorAsync(int doctorId);
+    Task<IQueryable<PopularAppointmentType>> GetPopularAppointmentTypesForDoctorAsync(int doctorId);
     Task<IQueryable<AppointmentGroupedByDoctor>> GetAppointmentCountsGroupedByDoctorAndStatusAsync();
 }
