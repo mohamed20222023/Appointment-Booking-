@@ -10,7 +10,6 @@ public class AppointmentProfile : Profile
 {
     public AppointmentProfile()
     {
-
         CreateMap<AppointmentEntity, AppointmentDto>()
             .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.Doctor.Name))
             .ForMember(dest => dest.AppointmentType, opt => opt.MapFrom(src => src.AppointmentType.TypeName))
