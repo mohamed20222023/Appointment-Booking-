@@ -33,7 +33,7 @@ public class AppointmentController : AbpControllerBase
     
 
     [HttpGet]
-    [Route("patient/upcoming/{tenantId}/{patientId}")]
+    [Route("patient/upcoming/{patientId}")]
     public async Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync( int patientId)
     => await _appointmentService.GetUpcomingAppointmentsForPatientAsync( patientId);
     

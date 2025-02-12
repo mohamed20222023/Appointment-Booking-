@@ -8,8 +8,6 @@ public class DoctorAvailabilityProfile : Profile
 {
     public DoctorAvailabilityProfile()
     {
-        CreateMap<DoctorAvailability, DoctorAvailabilityDto>();
-        CreateMap<CreateDoctorAvailabilityDto, DoctorAvailability>();
-        CreateMap<UpdateDoctorAvailabilityDto, DoctorAvailability>();
+
     }
 }

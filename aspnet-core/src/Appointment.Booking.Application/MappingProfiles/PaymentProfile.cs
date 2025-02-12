@@ -9,7 +9,5 @@ public class PaymentProfile : Profile
     public PaymentProfile()
     {
         CreateMap<Payment, PaymentDto>();
-        CreateMap<CreatePaymentDto, Payment>();
-        CreateMap<UpdatePaymentDto, Payment>();
     }
 }

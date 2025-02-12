@@ -8,8 +8,6 @@ public class AppointmentTypeProfile : Profile
 {
     public AppointmentTypeProfile()
     {
-        CreateMap<AppointmentType, AppointmentTypeDto>();
-        CreateMap<CreateAppointmentTypeDto, AppointmentType>();
-        CreateMap<UpdateAppointmentTypeDto, AppointmentType>();
+
     }
 }

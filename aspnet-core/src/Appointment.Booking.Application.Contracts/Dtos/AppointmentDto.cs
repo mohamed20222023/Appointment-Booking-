@@ -15,22 +15,6 @@ public class AppointmentDto
     public string AppointmentType { get; set; }
 }
 
-public class CreateAppointmentDto
-{
-    public DateTime AppointmentDate { get; set; }
-    public string Status { get; set; }
-    public AppointmentStatus StatusValue { get; set; }
-    public int PatientId { get; set; }
-    public int DoctorId { get; set; }
-    public int AppointmentTypeId { get; set; }
-}
-
-public class UpdateAppointmentDto
-{
-    public DateTime AppointmentDate { get; set; }
-    public string AppointmentStatus { get; set; }
-}
-
 public class AppointmentWithDoctorPatientDto
 {
     public int Id { get; set; }
