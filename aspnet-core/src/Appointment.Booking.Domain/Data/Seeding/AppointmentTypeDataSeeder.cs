@@ -17,7 +17,7 @@ public class AppointmentTypeDataSeeder : IDataSeedContributor, ITransientDepende
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        if (await _appointmentTypeRepository.GetCountAsync() == 0)
+        if (!await _appointmentTypeRepository.AnyAsync())
         {
             await _appointmentTypeRepository.InsertManyAsync(new[]
             {

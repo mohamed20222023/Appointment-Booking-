@@ -17,7 +17,7 @@ public class PatientDataSeeder : IDataSeedContributor, ITransientDependency
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        if (await _patientRepository.GetCountAsync() == 0)
+        if (!await _patientRepository.AnyAsync())
         {
             await _patientRepository.InsertManyAsync(new[]
             {

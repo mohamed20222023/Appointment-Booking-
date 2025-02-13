@@ -18,7 +18,7 @@ public class DoctorDataSeeder : IDataSeedContributor, ITransientDependency
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        if (await _doctorRepository.GetCountAsync() == 0)
+        if (!await _doctorRepository.AnyAsync())
         {
             await _doctorRepository.InsertManyAsync(new[]
             {

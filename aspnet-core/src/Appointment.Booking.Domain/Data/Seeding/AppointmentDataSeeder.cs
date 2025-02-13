@@ -20,7 +20,7 @@ public class AppointmentDataSeeder : IDataSeedContributor, ITransientDependency
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        if (await _appointmentRepository.GetCountAsync() == 0)
+        if (!await _appointmentRepository.AnyAsync())
         {
             var appointments = new List<AppointmentEntity>();
             var random = new Random();

@@ -18,7 +18,7 @@ public class PaymentDataSeeder : IDataSeedContributor, ITransientDependency
 
     public async Task SeedAsync(DataSeedContext context)
     {
-        if (await _paymentRepository.GetCountAsync() == 0)
+        if (!await _paymentRepository.AnyAsync())
         {
             await _paymentRepository.InsertManyAsync(new[]
             {
