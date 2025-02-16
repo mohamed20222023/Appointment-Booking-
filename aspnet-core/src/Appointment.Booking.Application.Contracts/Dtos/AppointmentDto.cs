@@ -3,6 +3,14 @@ using System;
 
 namespace Appointment.Booking.Dtos;
 
+public class AddAppointmentDto
+{
+    public DateTime AppointmentDate { get; set; }
+    public AppointmentStatus Status { get; set; }
+    public int PatientId { get; set; }
+    public int DoctorId { get; set; }
+    public int AppointmentTypeId { get; set; }
+}
 
 public class AppointmentDto
 {

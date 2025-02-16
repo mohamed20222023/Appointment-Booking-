@@ -28,4 +28,9 @@ public class DoctorService : BaseAppService, IDoctorService
         var doctors = await queryableDoctors.ToListAsync();
         return ObjectMapper.Map< List<Doctor> ,List <DoctorDto>>(doctors);
     }
+
+    public async Task<List<object>> GetAllDoctorsLookupsAsync()
+    {
+        return await _doctorRepository.GetAllDoctorsLookupsAsync();
+    }
 }

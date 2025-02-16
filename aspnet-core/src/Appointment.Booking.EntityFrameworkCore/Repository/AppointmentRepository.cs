@@ -18,6 +18,38 @@ public class AppointmentRepository : EfCoreRepository<BookingDbContext, Appointm
     {
     }
 
+
+    public async Task<bool> AddAppointmentAsync(AppointmentEntity appointment)
+    {
+        try
+        {
+            var dbContext = await GetDbContextAsync();
+
+            var lastAppointment = await dbContext.Appointments.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
+            int newAppointmentId = (lastAppointment?.Id ?? 0) + 1;
+
+            var newAppointment = new AppointmentEntity(newAppointmentId)
+            {
+                AppointmentDate = appointment.AppointmentDate,
+                Status = appointment.Status,
+                PatientId = appointment.PatientId,
+                DoctorId = appointment.DoctorId,
+                AppointmentTypeId = appointment.AppointmentTypeId
+            };
+
+            await dbContext.Appointments.AddAsync(newAppointment);
+            await dbContext.SaveChangesAsync();
+
+            return true; 
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
+
+
     public async Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync( int patientId)
     {
         var dbContext = await GetDbContextAsync();
@@ -96,5 +128,27 @@ public class AppointmentRepository : EfCoreRepository<BookingDbContext, Appointm
                 AppointmentCount = g.Count()
             });
     }
+
+    public async Task<Dictionary<string, object>> GetAppointmentLookupsAsync()
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var appointmentTypes = await dbContext.AppointmentTypes
+            .Select(a => new { Id = a.Id, Name = a.TypeName })
+            .ToListAsync();
+
+        var appointmentStatuses = Enum.GetValues(typeof(AppointmentStatus))
+            .Cast<AppointmentStatus>()
+            .Select(status => new { Id = (int)status, Name = status.ToString() })
+            .ToList();
+
+        // Combine both in a dictionary
+        return new Dictionary<string, object>
+    {
+        { "AppointmentTypes", appointmentTypes },
+        { "AppointmentStatuses", appointmentStatuses }
+    };
+    }
+
 
 }

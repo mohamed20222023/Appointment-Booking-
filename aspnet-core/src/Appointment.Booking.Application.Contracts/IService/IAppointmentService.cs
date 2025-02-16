@@ -8,6 +8,8 @@ namespace Appointment.Booking.IService;
 
 public interface IAppointmentService
 {
+    Task<bool> AddAppointmentAsync(AddAppointmentDto dto);
+    Task<Dictionary<string, object>> GetAppointmentLookupsAsync();
     Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId);
     Task<List<AppointmentDto>> GetAppointmentsForDoctorAsync(int doctorId);
     Task<List<AppointmentWithDoctorPatientDto>> GetUpcomingAppointmentsForPatientAsync(int patientId);

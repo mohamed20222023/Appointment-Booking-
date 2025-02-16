@@ -20,6 +20,12 @@ public class AppointmentController : AbpControllerBase
         LocalizationResource = typeof(BookingResource);
     }
 
+    [HttpPost]
+    [Route("add")]
+    public async Task<bool> AddAppointmentAsync([FromBody] AddAppointmentDto request)
+    => await _appointmentService.AddAppointmentAsync(request);
+
+
     [HttpGet]
     [Route("patient/{patientId}")]
     public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId)
@@ -54,4 +60,12 @@ public class AppointmentController : AbpControllerBase
     [Route("doctor/{doctorId}/popular-appointment-types")]
     public async Task<List<PopularAppointmentTypeDto>> GetPopularAppointmentTypesForDoctorAsync(int doctorId)
     => await _appointmentService.GetPopularAppointmentTypesForDoctorAsync(doctorId);
+
+
+    [HttpGet]
+    [Route("lookup")]
+    public async Task<Dictionary<string, object>> GetAppointmentLookupsAsync()
+    => await _appointmentService.GetAppointmentLookupsAsync();
+
+
 }

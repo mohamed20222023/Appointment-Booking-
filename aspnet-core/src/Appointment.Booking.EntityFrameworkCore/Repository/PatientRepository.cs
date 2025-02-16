@@ -1,6 +1,8 @@
 ﻿using Appointment.Booking.EntityFrameworkCore;
 using Appointment.Booking.IRepository;
 using Appointment.Booking.Patients;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
@@ -16,5 +18,13 @@ public class PatientRepository : EfCoreRepository<BookingDbContext, Patient, int
     {
         var dbContext = await GetDbContextAsync();
         return dbContext.Set<Patient>().AsQueryable();
+    }
+
+    public async Task<List<object>> GetAllPatientsLookupsAsync()
+    {
+        var dbContext = await GetDbContextAsync();
+        return await dbContext.Set<Patient>()
+            .Select(p => new { Id = p.Id, Name = p.FullName })
+            .ToListAsync<object>();
     }
 }

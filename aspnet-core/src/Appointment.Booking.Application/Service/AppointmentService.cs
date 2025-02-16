@@ -23,6 +23,20 @@ namespace Appointment.Booking.Service
             _appointmentRepository = appointmentRepository;
         }
 
+
+        public async Task<bool> AddAppointmentAsync(AddAppointmentDto dto)
+        {
+            var appointmentEntity = new AppointmentEntity(0)
+            {
+                AppointmentDate = dto.AppointmentDate,
+                Status = dto.Status,
+                PatientId = dto.PatientId,
+                DoctorId = dto.DoctorId,
+                AppointmentTypeId = dto.AppointmentTypeId
+            };
+            return await _appointmentRepository.AddAppointmentAsync(appointmentEntity);
+        }
+
         public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId)
         {
             var queryable = await _appointmentRepository.GetAppointmentsForPatientAsync( patientId);
@@ -96,6 +110,11 @@ namespace Appointment.Booking.Service
                 AppointmentType = a.AppointmentType,
                 AppointmentCount = a.AppointmentCount
             }).ToList();
+        }
+
+        public async Task<Dictionary<string, object>> GetAppointmentLookupsAsync()
+        {
+            return await _appointmentRepository.GetAppointmentLookupsAsync();
         }
 
     }

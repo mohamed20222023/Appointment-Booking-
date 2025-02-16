@@ -2,6 +2,7 @@
 using Appointment.Booking.IService;
 using Appointment.Booking.Localization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp.AspNetCore.Mvc;
@@ -24,5 +25,10 @@ public class PatientController : AbpControllerBase
     [Route("all")]
     public async Task<List<PatientDto>> GetAllPatientsAsync()
     => await _patientService.GetAllPatientsAsync();
+
+    [HttpGet]
+    [Route("Lookups")]
+    public async Task<List<object>> GetAllPatientsLookupsAsync()
+    => await _patientService.GetAllPatientsLookupsAsync();
     
 }

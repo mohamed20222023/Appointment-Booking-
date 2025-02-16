@@ -9,4 +9,5 @@ namespace Appointment.Booking.IRepository;
 public interface IDoctorRepository : IRepository<Doctor, int>
 {
     Task<IQueryable<Doctor>> GetAllDoctorsAsync();
+    Task<List<object>> GetAllDoctorsLookupsAsync();
 }

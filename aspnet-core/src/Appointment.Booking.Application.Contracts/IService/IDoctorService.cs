@@ -8,4 +8,5 @@ namespace Appointment.Booking.IService;
 public interface IDoctorService
 {
     Task<List<DoctorDto>> GetAllDoctorsAsync();
+    Task<List<object>> GetAllDoctorsLookupsAsync();
 }

@@ -1,6 +1,7 @@
 ﻿using Appointment.Booking.Appointments;
 using Appointment.Booking.Common;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
@@ -10,6 +11,8 @@ namespace Appointment.Booking.IRepository;
 
 public interface IAppointmentRepository : IRepository<AppointmentEntity, int>
 {
+    Task<bool> AddAppointmentAsync(AppointmentEntity appointment);
+    Task<Dictionary<string, object>> GetAppointmentLookupsAsync();
     Task<IQueryable<AppointmentEntity>> GetAppointmentsForPatientAsync(int patientId);
     Task<IQueryable<AppointmentEntity>> GetAppointmentsForDoctorAsync(int doctorId);
     Task<IQueryable<AppointmentEntity>> GetUpcomingAppointmentsForPatientAsync(int patientId);
