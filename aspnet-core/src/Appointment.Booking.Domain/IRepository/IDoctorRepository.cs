@@ -10,4 +10,5 @@ public interface IDoctorRepository : IRepository<Doctor, int>
 {
     Task<IQueryable<Doctor>> GetAllDoctorsAsync();
     Task<List<object>> GetAllDoctorsLookupsAsync();
+    Task<List<DoctorAvailability>> GetDoctorAvailabilityAsync(int doctorId);
 }

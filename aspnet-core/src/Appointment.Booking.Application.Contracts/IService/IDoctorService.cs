@@ -9,4 +9,5 @@ public interface IDoctorService
 {
     Task<List<DoctorDto>> GetAllDoctorsAsync();
     Task<List<object>> GetAllDoctorsLookupsAsync();
+    Task<List<DoctorAvailabilityDto>> GetDoctorAvailabilityAsync(int doctorId);
 }

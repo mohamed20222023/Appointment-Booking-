@@ -6,6 +6,12 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+  },  {
+    path: 'doctors',
+    loadChildren: () => import('./modules/doctors/doctors.module').then(m => m.DoctorsModule),
+  },  {
+    path: 'appointments',
+    loadChildren: () => import('./modules/appointments/appointments.module').then(m => m.AppointmentsModule),
   },
   {
     path: 'account',

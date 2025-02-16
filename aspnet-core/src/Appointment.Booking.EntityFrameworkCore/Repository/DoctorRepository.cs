@@ -27,4 +27,14 @@ public class DoctorRepository : EfCoreRepository<BookingDbContext, Doctor, int>,
             .Select(d => new { Id = d.Id, Name = d.Name })
             .ToListAsync<object>();
     }
+
+    public async Task<List<DoctorAvailability>> GetDoctorAvailabilityAsync(int doctorId)
+    {
+        var dbContext = await GetDbContextAsync();
+        return await dbContext.Set<DoctorAvailability>()
+            .Where(da => da.DoctorId == doctorId)
+            .ToListAsync();
+    }
+
+
 }

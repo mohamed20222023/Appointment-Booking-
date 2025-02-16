@@ -26,6 +26,12 @@ public class DoctorController : AbpControllerBase
 
 
     [HttpGet]
+    [Route("{doctorId}/availability")]
+    public async Task<List<DoctorAvailabilityDto>> GetDoctorAvailabilityAsync(int doctorId)
+    => await _doctorService.GetDoctorAvailabilityAsync(doctorId);
+    
+
+    [HttpGet]
     [Route("Lookups")]
     public async Task<List<object>> GetAllDoctorsLookupsAsync()
     => await _doctorService.GetAllDoctorsLookupsAsync();

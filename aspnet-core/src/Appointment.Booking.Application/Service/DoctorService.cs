@@ -5,6 +5,7 @@ using Appointment.Booking.IRepository;
 using Appointment.Booking.IService;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Repositories;
@@ -33,4 +34,17 @@ public class DoctorService : BaseAppService, IDoctorService
     {
         return await _doctorRepository.GetAllDoctorsLookupsAsync();
     }
+
+    public async Task<List<DoctorAvailabilityDto>> GetDoctorAvailabilityAsync(int doctorId)
+    {
+        var availabilityList = await _doctorRepository.GetDoctorAvailabilityAsync(doctorId);
+
+        return availabilityList.Select(da => new DoctorAvailabilityDto
+        {
+            Day = da.Day,
+            StartTime = da.StartTime,
+            EndTime = da.EndTime
+        }).ToList();
+    }
+
 }

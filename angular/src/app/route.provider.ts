@@ -14,6 +14,18 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-home',
         order: 1,
         layout: eLayoutType.application,
+      }, {
+        path: 'doctors',
+        name: 'Doctors',
+        iconClass: 'fas fa-list',
+        order: 2,
+        layout: eLayoutType.application,
+      }, {
+        path: 'appointments',
+        name: 'Appointments',
+        iconClass: 'fas fa-box',
+        order: 3,
+        layout: eLayoutType.application,
       },
     ]);
   };
