@@ -1,11 +1,11 @@
-﻿using Appointment.Booking.Dtos;
-using Appointment.Booking.Localization;
+﻿using Appointment.Booking.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using Volo.Abp.AspNetCore.Mvc;
-using Appointment.Booking.IService;
+using Appointment.Booking.Appointment.Dto;
+using Appointment.Booking.Appointment.IService;
 
 namespace Appointment.Booking.Controllers;
 
@@ -26,6 +26,11 @@ public class AppointmentController : AbpControllerBase
     => await _appointmentService.AddAppointmentAsync(request);
 
 
+    [HttpGet]
+    [Route("appointments")]
+    public async Task<List<AppointmentDto>> GetAppointmentsAsync()
+    => await _appointmentService.GetAllAppointmentsAsync();
+    
     [HttpGet]
     [Route("patient/{patientId}")]
     public async Task<List<AppointmentDto>> GetAppointmentsForPatientAsync(int patientId)
@@ -64,7 +69,7 @@ public class AppointmentController : AbpControllerBase
 
     [HttpGet]
     [Route("lookup")]
-    public async Task<Dictionary<string, object>> GetAppointmentLookupsAsync()
+    public async Task<AppointmentLookupsDto> GetAppointmentLookupsAsync()
     => await _appointmentService.GetAppointmentLookupsAsync();
 
 

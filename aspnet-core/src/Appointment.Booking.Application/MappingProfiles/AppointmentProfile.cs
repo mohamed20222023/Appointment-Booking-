@@ -1,5 +1,5 @@
-﻿using Appointment.Booking.Appointments;
-using Appointment.Booking.Dtos;
+﻿using Appointment.Booking.Appointment.Dto;
+using Appointment.Booking.Appointments;
 using AutoMapper;
 using System;
 using System.Linq;

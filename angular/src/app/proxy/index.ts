@@ -1,4 +1,6 @@
+import * as Appointment from './appointment';
 import * as Common from './common';
 import * as Controllers from './controllers';
-import * as Dtos from './dtos';
-export { Common, Controllers, Dtos };
+import * as Doctors from './doctors';
+import * as Patients from './patients';
+export { Appointment, Common, Controllers, Doctors, Patients };

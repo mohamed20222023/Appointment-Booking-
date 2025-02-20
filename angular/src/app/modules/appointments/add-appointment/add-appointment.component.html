@@ -1,1 +1,42 @@
-<p>add-appointment works!</p>
+<h2>Add Appointment</h2>
+
+<form (submit)="addAppointment()">
+
+  <div class="form-group">
+    <label for="doctor">Doctor:</label>
+    <select id="doctor" class="form-control" [(ngModel)]="appointment.doctorId" name="doctor" required>
+      <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group  pt-3">
+    <label for="patient">Patient:</label>
+    <select id="patient" class="form-control" [(ngModel)]="appointment.patientId" name="patient" required>
+      <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group  pt-3">
+    <label for="appointmentType">Appointment Type:</label>
+    <select id="appointmentType" class="form-control" [(ngModel)]="appointment.appointmentTypeId" name="appointmentType" required>
+      <option *ngFor="let type of appointmentTypes" [value]="type.id">{{ type.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group  pt-3">
+    <label for="date">Appointment Date:</label>
+    <input type="date" id="date" class="form-control" [(ngModel)]="appointment.appointmentDate" name="date" required />
+  </div>
+
+  <div class="form-group  pt-3 pb-3">
+    <label for="status">Status:</label>
+    <select id="status" class="form-control" [(ngModel)]="appointment.status" name="status" required>
+      <option value="1">Scheduled</option>
+      <option value="2">Completed</option>
+      <option value="3">Cancelled</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success me-5">Add Appointment</button>
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+</form>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DoctorAvailabilitiesComponent } from './modules/doctors/doctor-availabilities/doctor-availabilities.component';
+import { AddAppointmentComponent } from './modules/appointments/add-appointment/add-appointment.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,9 @@ const routes: Routes = [
   },  {
     path: 'appointments',
     loadChildren: () => import('./modules/appointments/appointments.module').then(m => m.AppointmentsModule),
+  },
+  { 
+    path: 'doctors/:doctorId/availability', component: DoctorAvailabilitiesComponent 
   },
   {
     path: 'account',

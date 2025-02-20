@@ -1,6 +1,6 @@
 import { RestService, Rest } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { AddAppointmentDto, AppointmentDto, AppointmentGroupedByDoctorDto, AppointmentWithDateRangeDto, AppointmentWithDoctorPatientDto, PopularAppointmentTypeDto } from '../dtos/models';
+import type { AddAppointmentDto, AppointmentDto, AppointmentGroupedByDoctorDto, AppointmentLookupsDto, AppointmentWithDateRangeDto, AppointmentWithDoctorPatientDto, PopularAppointmentTypeDto } from '../appointment/dto/models';
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +27,17 @@ export class AppointmentService {
   
 
   getAppointmentLookups = (config?: Partial<Rest.Config>) =>
-    this.restService.request<any, Record<string, object>>({
+    this.restService.request<any, AppointmentLookupsDto>({
       method: 'GET',
       url: '/api/appointments/lookup',
+    },
+    { apiName: this.apiName,...config });
+  
+
+  getAppointments = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, AppointmentDto[]>({
+      method: 'GET',
+      url: '/api/appointments/appointments',
     },
     { apiName: this.apiName,...config });
   

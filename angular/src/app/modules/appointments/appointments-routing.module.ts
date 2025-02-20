@@ -11,7 +11,6 @@ const routes: Routes = [
     },
     { 
       path: 'add', 
-      pathMatch:'full',
       component:AddAppointmentComponent
     }
 ];

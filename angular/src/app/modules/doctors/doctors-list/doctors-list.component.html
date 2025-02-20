@@ -1,1 +1,44 @@
-<p>doctors-list works!</p>
+<h2 class="mb-4">Doctors List</h2>
+
+<div *ngIf="doctors.length > 0; else noDoctors">
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="table-light ">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of doctors | paginate: { itemsPerPage: pageSize, currentPage: currentPage }; let i = index">
+                    <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+                    <td>{{ doctor.name }}</td>
+                    <td>
+                        <span>{{ doctor.specialization }}</span>
+                    </td>
+                    <td>{{ doctor.phoneNumber }}</td>
+                    <td>{{ doctor.email }}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm text-white p-3 custom-rounded" (click)="showAvailability(doctor.id)">
+                            <i class="fas fa-calendar-alt me-2"></i> Availability
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+</div>
+
+<ng-template #noDoctors>
+    <div class="alert alert-info text-center" role="alert">
+        <i class="fas fa-info-circle"></i> No Doctors Found.
+    </div>
+</ng-template>

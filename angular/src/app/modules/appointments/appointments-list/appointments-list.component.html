@@ -1,1 +1,144 @@
-<p>appointments-list works!</p>
+<h2>Appointments List</h2>
+
+<div class="d-flex justify-content-end">
+  <button class="btn btn-primary mb-3" (click)="openModal(content)">
+      <i class="fas fa-plus"></i> Add Appointment
+  </button>
+</div>
+
+<div *ngIf="appointments.length > 0; else noAppointments">
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Doctor</th>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments | paginate: { itemsPerPage: pageSize, currentPage: currentPage }; let i = index">
+                    <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+                    <td>{{ appointment.doctorName }}</td>
+                    <td>{{ appointment.patientFullName }}</td>
+                    <td>{{ appointment.formattedDate }}</td>
+                    <td>{{ appointment.formattedTime }}</td>
+                    <td>
+                        <span class="badge text-white p-2" [ngClass]="getStatusClass(appointment.statusValue)">
+                            {{ appointment.statusValue }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="badge text-white p-2" [ngClass]="getAppointmentTypeClass(appointment.appointmentType)">
+                            {{ appointment.appointmentType }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+</div>
+
+<ng-template #noAppointments>
+    <div class="alert alert-info text-center">
+        <i class="fas fa-info-circle"></i> No Appointments Found.
+    </div>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-content">
+    
+    <div class="modal-header text-white">
+      <h5 class="modal-title">
+        <i class="fas fa-calendar-plus"></i> Add Appointment
+      </h5>
+      <button type="button" class="btn-close text-white" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+
+    <div class="modal-body p-4">
+      <form #appointmentForm="ngForm" (ngSubmit)="addAppointment(modal, appointmentForm)">
+        
+        <div class="mb-4">
+          <label for="doctor" class="form-label fw-bold">Doctor:</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-user-md"></i></span>
+            <select id="doctor" class="form-select" [(ngModel)]="appointment.doctorId" name="doctor" #doctor="ngModel" required>
+              <option value="0" disabled selected>Select Doctor</option>
+              <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
+            </select>
+          </div>
+          <div *ngIf="doctor.invalid && doctor.touched" class="text-danger">Doctor is required.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="patient" class="form-label fw-bold">Patient:</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <select id="patient" class="form-select" [(ngModel)]="appointment.patientId" name="patient" #patient="ngModel" required>
+              <option value="0" disabled selected>Select Patient</option>
+              <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.name }}</option>
+            </select>
+          </div>
+          <div *ngIf="patient.invalid && patient.touched" class="text-danger">Patient is required.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="appointmentType" class="form-label fw-bold">Appointment Type:</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-stethoscope"></i></span>
+            <select id="appointmentType" class="form-select" [(ngModel)]="appointment.appointmentTypeId" name="appointmentType" #appointmentType="ngModel" required>
+              <option value="0" disabled selected>Select Type</option>
+              <option *ngFor="let type of appointmentTypes" [value]="type.id">{{ type.name }}</option>
+            </select>
+          </div>
+          <div *ngIf="appointmentType.invalid && appointmentType.touched" class="text-danger">Type is required.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="date" class="form-label fw-bold">Appointment Date:</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+            <input type="datetime-local" id="date" class="form-control" [(ngModel)]="appointment.appointmentDate" name="date" #date="ngModel" required />
+          </div>
+          <div *ngIf="date.invalid && date.touched" class="text-danger">Date is required.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="status" class="form-label fw-bold">Status:</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+            <select id="status" class="form-select" [(ngModel)]="appointment.status" name="status" #status="ngModel" required>
+              <option value="0" disabled selected>Select Status</option>
+              <option value="1">Scheduled</option>
+              <option value="2">Completed</option>
+              <option value="3">Cancelled</option>
+            </select>
+          </div>
+          <div *ngIf="status.invalid && status.touched" class="text-danger">Status is required.</div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('Cancel click')">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" [disabled]="appointmentForm.invalid">
+            <i class="fas fa-check"></i> Add Appointment
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</ng-template>
+
+  

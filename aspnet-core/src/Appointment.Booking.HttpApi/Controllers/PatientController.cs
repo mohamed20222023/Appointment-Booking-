@@ -1,6 +1,6 @@
-﻿using Appointment.Booking.Dtos;
-using Appointment.Booking.IService;
-using Appointment.Booking.Localization;
+﻿using Appointment.Booking.Localization;
+using Appointment.Booking.Patients.Dto;
+using Appointment.Booking.Patients.IService;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ public class PatientController : AbpControllerBase
 
     [HttpGet]
     [Route("Lookups")]
-    public async Task<List<object>> GetAllPatientsLookupsAsync()
+    public async Task<List<PatientLookupDto>> GetAllPatientsLookupsAsync()
     => await _patientService.GetAllPatientsLookupsAsync();
     
 }

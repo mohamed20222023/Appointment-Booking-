@@ -1,4 +1,142 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+
+/* Custom Toastr Success */
+.toast-success {
+  background-color: #28a745 !important; /* Green */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+/* Custom Toastr Error */
+.toast-error {
+  background-color: #dc3545 !important; /* Red */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+/* Custom Toastr Warning */
+.toast-warning {
+  background-color: #ffc107 !important; /* Yellow */
+  color: black !important;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+
+}
+
+/* Custom Toastr Info */
+.toast-info {
+  background-color: #17a2b8 !important; /* Blue */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+
+}
+
+/* Toast Title */
+.toast-title {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+/* Toast Message */
+.toast-message {
+  font-size: 14px !important;
+}
+
+/* Custom Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#toast-container > div {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+
+
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  vertical-align: top;
+  border-top: 1px solid #e9ecef;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #e9ecef;
+}
+
+.table .table {
+  background-color: #f8f9fe;
+}
+
+.table-dark,
+.table-dark > th,
+.table-dark > td {
+  background-color: #c1c2c3;
+}
+
+.table .thead-dark th {
+  color: #f8f9fe;
+  border-color: #1f3a68;
+  background-color: #172b4d;
+}
+
+.table .thead-light th {
+  color: #8898aa;
+  border-color: #e9ecef;
+  background-color: #f6f9fc;
+}
+
+.table-dark {
+  color: #f8f9fe;
+  background-color: #172b4d;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: #1f3a68;
+}
+
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
 
 @keyframes donut-spin {
   0% {

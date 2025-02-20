@@ -21,6 +21,8 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
 import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
+import { ToastrModule } from 'ngx-toastr';
+// import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -29,9 +31,11 @@ import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
     AppRoutingModule,
     CoreModule,
     ThemeSharedModule,
-    
-    
-    
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
     InternetConnectionStatusComponent,
                    ThemeLeptonXModule.forRoot(),
                    SideMenuLayoutModule.forRoot(),

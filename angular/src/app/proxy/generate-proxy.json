@@ -891,9 +891,9 @@
               "parametersOnMethod": [
                 {
                   "name": "request",
-                  "typeAsString": "Appointment.Booking.Dtos.AddAppointmentDto, Appointment.Booking.Application.Contracts",
-                  "type": "Appointment.Booking.Dtos.AddAppointmentDto",
-                  "typeSimple": "Appointment.Booking.Dtos.AddAppointmentDto",
+                  "typeAsString": "Appointment.Booking.Appointment.Dto.AddAppointmentDto, Appointment.Booking.Application.Contracts",
+                  "type": "Appointment.Booking.Appointment.Dto.AddAppointmentDto",
+                  "typeSimple": "Appointment.Booking.Appointment.Dto.AddAppointmentDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -903,8 +903,8 @@
                   "nameOnMethod": "request",
                   "name": "request",
                   "jsonName": null,
-                  "type": "Appointment.Booking.Dtos.AddAppointmentDto",
-                  "typeSimple": "Appointment.Booking.Dtos.AddAppointmentDto",
+                  "type": "Appointment.Booking.Appointment.Dto.AddAppointmentDto",
+                  "typeSimple": "Appointment.Booking.Appointment.Dto.AddAppointmentDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -915,6 +915,21 @@
               "returnValue": {
                 "type": "System.Boolean",
                 "typeSimple": "boolean"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
+            },
+            "GetAppointmentsAsync": {
+              "uniqueName": "GetAppointmentsAsync",
+              "name": "GetAppointmentsAsync",
+              "httpMethod": "GET",
+              "url": "api/appointments/appointments",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -950,8 +965,8 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.AppointmentDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.AppointmentDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -987,8 +1002,8 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.AppointmentDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.AppointmentDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1024,8 +1039,8 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.AppointmentWithDoctorPatientDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.AppointmentWithDoctorPatientDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentWithDoctorPatientDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentWithDoctorPatientDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1039,8 +1054,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.AppointmentGroupedByDoctorDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.AppointmentGroupedByDoctorDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentGroupedByDoctorDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentGroupedByDoctorDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1116,8 +1131,8 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.AppointmentWithDateRangeDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.AppointmentWithDateRangeDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.AppointmentWithDateRangeDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentWithDateRangeDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1153,8 +1168,8 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.PopularAppointmentTypeDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.PopularAppointmentTypeDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Appointment.Dto.PopularAppointmentTypeDto>",
+                "typeSimple": "[Appointment.Booking.Appointment.Dto.PopularAppointmentTypeDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1168,8 +1183,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.Dictionary<System.String,System.Object>",
-                "typeSimple": "{string:object}"
+                "type": "Appointment.Booking.Appointment.Dto.AppointmentLookupsDto",
+                "typeSimple": "Appointment.Booking.Appointment.Dto.AppointmentLookupsDto"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.AppointmentController"
@@ -1194,8 +1209,45 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.DoctorDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.DoctorDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Doctors.Dto.DoctorDto>",
+                "typeSimple": "[Appointment.Booking.Doctors.Dto.DoctorDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Appointment.Booking.Controllers.DoctorController"
+            },
+            "GetDoctorAvailabilityAsyncByDoctorId": {
+              "uniqueName": "GetDoctorAvailabilityAsyncByDoctorId",
+              "name": "GetDoctorAvailabilityAsync",
+              "httpMethod": "GET",
+              "url": "api/doctors/{doctorId}/availability",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "doctorId",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "doctorId",
+                  "name": "doctorId",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Appointment.Booking.Doctors.Dto.DoctorAvailabilityDto>",
+                "typeSimple": "[Appointment.Booking.Doctors.Dto.DoctorAvailabilityDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.DoctorController"
@@ -1209,8 +1261,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<System.Object>",
-                "typeSimple": "[object]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Doctors.Dto.DoctorLookupDto>",
+                "typeSimple": "[Appointment.Booking.Doctors.Dto.DoctorLookupDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.DoctorController"
@@ -1235,8 +1287,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Appointment.Booking.Dtos.PatientDto>",
-                "typeSimple": "[Appointment.Booking.Dtos.PatientDto]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Patients.Dto.PatientDto>",
+                "typeSimple": "[Appointment.Booking.Patients.Dto.PatientDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.PatientController"
@@ -1250,8 +1302,8 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<System.Object>",
-                "typeSimple": "[object]"
+                "type": "System.Collections.Generic.List<Appointment.Booking.Patients.Dto.PatientLookupDto>",
+                "typeSimple": "[Appointment.Booking.Patients.Dto.PatientLookupDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Appointment.Booking.Controllers.PatientController"
@@ -3903,23 +3955,7 @@
     }
   },
   "types": {
-    "Appointment.Booking.Common.AppointmentStatus": {
-      "baseType": "System.Enum",
-      "isEnum": true,
-      "enumNames": [
-        "Scheduled",
-        "Completed",
-        "Cancelled"
-      ],
-      "enumValues": [
-        1,
-        2,
-        3
-      ],
-      "genericArguments": null,
-      "properties": null
-    },
-    "Appointment.Booking.Dtos.AddAppointmentDto": {
+    "Appointment.Booking.Appointment.Dto.AddAppointmentDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -3988,7 +4024,7 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.AppointmentDto": {
+    "Appointment.Booking.Appointment.Dto.AppointmentDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4081,7 +4117,7 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.AppointmentGroupedByDoctorDto": {
+    "Appointment.Booking.Appointment.Dto.AppointmentGroupedByDoctorDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4138,7 +4174,106 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.AppointmentWithDateRangeDto": {
+    "Appointment.Booking.Appointment.Dto.AppointmentLookupsDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "AppointmentTypes",
+          "jsonName": null,
+          "type": "[Appointment.Booking.Appointment.Dto.AppointmentTypeLookupDto]",
+          "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentTypeLookupDto]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AppointmentStatuses",
+          "jsonName": null,
+          "type": "[Appointment.Booking.Appointment.Dto.AppointmentStatusLookupDto]",
+          "typeSimple": "[Appointment.Booking.Appointment.Dto.AppointmentStatusLookupDto]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Appointment.Dto.AppointmentStatusLookupDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Appointment.Dto.AppointmentTypeLookupDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Appointment.Dto.AppointmentWithDateRangeDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4231,7 +4366,7 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.AppointmentWithDoctorPatientDto": {
+    "Appointment.Booking.Appointment.Dto.AppointmentWithDoctorPatientDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4324,7 +4459,113 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.DoctorDto": {
+    "Appointment.Booking.Appointment.Dto.PopularAppointmentTypeDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "AppointmentType",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AppointmentCount",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Common.AppointmentStatus": {
+      "baseType": "System.Enum",
+      "isEnum": true,
+      "enumNames": [
+        "Scheduled",
+        "Completed",
+        "Cancelled"
+      ],
+      "enumValues": [
+        1,
+        2,
+        3
+      ],
+      "genericArguments": null,
+      "properties": null
+    },
+    "Appointment.Booking.Doctors.Dto.DoctorAvailabilityDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Day",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "StartTime",
+          "jsonName": null,
+          "type": "System.TimeSpan",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "EndTime",
+          "jsonName": null,
+          "type": "System.TimeSpan",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Doctors.Dto.DoctorDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4393,7 +4634,40 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.PatientDto": {
+    "Appointment.Booking.Doctors.Dto.DoctorLookupDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Appointment.Booking.Patients.Dto.PatientDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4450,7 +4724,7 @@
         }
       ]
     },
-    "Appointment.Booking.Dtos.PopularAppointmentTypeDto": {
+    "Appointment.Booking.Patients.Dto.PatientLookupDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -4458,10 +4732,10 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "AppointmentType",
+          "name": "Id",
           "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
+          "type": "System.Int32",
+          "typeSimple": "number",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -4470,10 +4744,10 @@
           "regex": null
         },
         {
-          "name": "AppointmentCount",
+          "name": "Name",
           "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

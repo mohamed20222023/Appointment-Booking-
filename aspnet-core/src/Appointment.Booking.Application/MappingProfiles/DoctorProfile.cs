@@ -1,5 +1,5 @@
 ﻿using Appointment.Booking.Doctors;
-using Appointment.Booking.Dtos;
+using Appointment.Booking.Doctors.Dto;
 using AutoMapper;
 
 namespace Appointment.Booking.MappingProfiles;

@@ -1,6 +1,6 @@
 import { RestService, Rest } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
-import type { PatientDto } from '../dtos/models';
+import type { PatientDto, PatientLookupDto } from '../patients/dto/models';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class PatientService {
   
 
   getAllPatientsLookups = (config?: Partial<Rest.Config>) =>
-    this.restService.request<any, object[]>({
+    this.restService.request<any, PatientLookupDto[]>({
       method: 'GET',
       url: '/api/patients/Lookups',
     },
